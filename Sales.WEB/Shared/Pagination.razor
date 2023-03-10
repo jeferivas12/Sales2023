@@ -33,7 +33,17 @@
 
         for (int i = 1; i <= TotalPages; i++)
         {
-            if (i >= CurrentPage - Radio && i <= CurrentPage + Radio)
+           // if (i >= CurrentPage - Radio && i <= CurrentPage + Radio)
+           if (CurrentPage <= 2*Radio && i <= 2* Radio)
+            {
+                Links.Add(new PageModel
+                    {
+                        Page = i,
+                        Enable = CurrentPage == i,
+                        Text = $"{i}"
+                    });
+            }
+            else if (i <= CurrentPage && i> CurrentPage - 2*Radio)
             {
                 Links.Add(new PageModel
                     {
