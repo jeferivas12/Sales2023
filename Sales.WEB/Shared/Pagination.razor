@@ -3,7 +3,7 @@
 
         @foreach (var link in Links)
         {
-            <li @onclick=@(() => InternalSelectedPage(link)) style="cursor: pointer" class="page-item @(link.Enable ? null : "disabled") @(link.Enable ? "active" : null)">
+            <li @onclick=@(() => InternalSelectedPage(link)) style="cursor: pointer; min-width: 45px" class="page-item @(link.Enable ? null : "disabled") @(link.Enable ? "active" : null)">
                 <a class="page-link">@link.Text</a>
             </li>
         }
@@ -33,7 +33,6 @@
 
         for (int i = 1; i <= TotalPages; i++)
         {
-           // if (i >= CurrentPage - Radio && i <= CurrentPage + Radio)
            if (CurrentPage <= 2*Radio && i <= 2* Radio)
             {
                 Links.Add(new PageModel
